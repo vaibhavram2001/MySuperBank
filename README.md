@@ -7,7 +7,6 @@ Welcome to MySuperBank, an online banking system designed to provide secure and 
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
@@ -73,7 +72,3 @@ dotnet run / dotnet watch
 ## Contributing
 
 Contributions are welcome! If you have any ideas, bug fixes, or improvements to suggest, please open an issue or create a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
