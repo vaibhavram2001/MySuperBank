@@ -1,0 +1,101 @@
+﻿@page
+@model SuperBank.Pages.ServicesModel
+@{
+    ViewData["Title"] = "Services";
+
+}
+
+<style>
+
+    .card {
+        border: none;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+    p.lead {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+</style>
+
+
+
+
+<div class="container bg-dark mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h3 class="text-center text-white mt-3 mb-3">@ViewData["Title"]</h3>
+
+            <div class="card mb-4">
+                <div><h5 class="w-25 p-2 text-center text-white" style="background-color: #343a40">Deposit Money</h5></div>
+                <div class="card-body mx-5 p-3 mb-2">
+                    <div class="row d-flex flex-row justify-content-center align-items-center">
+                        <div class="col-sm">
+                            <a asp-page="/BankService/Deposit">
+                                <img class="rounded-pill p-3" src="/images/deposit.png" alt="Deposit Money Icon" width=150px style="background-color: #343a40">
+                            </a>
+                        </div>
+                        <div class="col-sm text-center mb-2 text-white rounded-pill p-3" style="background-color: #343a40">
+                            <p class="mt-4 mx-4">Securely add money to your account. Make deposits at our ATMs or with our mobile app.</p>
+                            <a asp-page="/BankService/Deposit" class="btn btn-sm btn-success mb-2">Deposit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div><h5 class="w-25 p-2 text-center text-white" style="background-color: #343a40">Transaction History</h5></div>
+                <div class="card-body mx-5 p-3 mb-2">
+                    <div class="row d-flex flex-row justify-content-center align-items-center">
+                        <div class="col-sm">
+                            <a asp-page="/BankService/Transaction">
+                                <img class="rounded p-3" src="/images/report.png" alt=" Report Icon" width=150px style="background-color: #343a40">
+                            </a>
+                        </div>
+                        <div class="col-sm text-center mb-2 text-white rounded-pill p-3" style="background-color: #343a40">
+                            <p class="mt-4 mx-4">Access a detailed record of your account activity. Keep track of your transfers.</p>
+                            <a asp-page="/BankService/Transaction" class="btn btn-sm btn-primary mb-2">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-5">
+                <div><h5 class="w-25 p-2 text-center text-white" style="background-color: #343a40">Withdraw Money</h5></div>
+                <div class="card-body mx-5 p-3 mb-2">
+                    <div class="row d-flex flex-row justify-content-center align-items-center">
+                        <div class="col-sm">
+                            <a asp-page="/BankService/Withdraw">
+                                <img class="rounded-pill p-3" src="/images/withdraw.png" alt="Withdraw Money Icon" width=150px style="background-color: #343a40">
+                            </a>
+                        </div>
+                        <div class="col-sm text-center mb-2 text-white rounded-pill p-3" style="background-color: #343a40">
+                            <p class="mt-4 mx-4">Access your funds quickly and conveniently. Use your debit card at ATMs or visit our branches.</p>
+                            <a asp-page="/BankService/Withdraw" class="btn btn-sm btn-danger mb-2">Withdraw</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

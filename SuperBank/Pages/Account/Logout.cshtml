@@ -1,0 +1,55 @@
+﻿@page
+@model SuperBank.Pages.Account.LogoutModel
+@{
+    ViewData["Title"] = "Logout Confirmation";
+}
+
+<style>
+
+    .card {
+        border: none;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+    p.lead {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+</style>
+
+
+<div class="container bg-dark mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center text-white mt-3 mb-3">@ViewData["Title"]</h1>
+            <div class="card mb-5">
+                <div class="card-body">
+                    <h2 class="card-title">How Was The Service</h2>
+                    <p class="card-text">Are you sure you want to log out?</p>
+                    <form method="post">
+                        <button type="submit" class="btn btn-sm btn-primary">Yes, Log Out</button>
+                        <a asp-page="../Index" class="btn btn-sm btn-secondary">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

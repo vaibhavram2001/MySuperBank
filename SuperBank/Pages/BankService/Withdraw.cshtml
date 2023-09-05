@@ -1,0 +1,54 @@
+﻿@page
+@model SuperBank.Pages.BankService.WithdrawModel
+@{
+    ViewData["Title"] = "Withdraw";
+}
+<div class="container mt-5 bg-dark">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mb-5">
+            <h2 class="text-center mb-3 mt-2 text-white">Withdraw Money</h2>
+
+            <!-- Display alert message if available -->
+            @if (!string.IsNullOrEmpty(Model.WithdrawAlert))
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert" id="alertMessage">
+                    @Html.Raw(Model.WithdrawAlert)
+                    <button type="button btn-sm" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+
+            <div class="card">
+                <div class="card-body">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="WithdrawAmount">Amount to Withdraw:</label>
+                            <div class="input-group mt-3">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </span>
+                                <input type="number" class="form-control" id="WithdrawAmount" name="WithdrawAmount" asp-for="WithdrawAmount" required min="1" value="">
+                            </div>
+                            <span asp-validation-for="WithdrawAmount" class="text-danger"></span>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-sm btn-danger btn-block mt-3 px-4">Withdraw</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(".alert .close").on("click", function (e) {
+            $(this).parent().fadeOut("fast");
+            window.location.href = "/Services";
+        });
+   </script>
+}

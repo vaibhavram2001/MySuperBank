@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{5193CB97-DF5E-4F36-9312-C3F9A517EEF5}|https">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.SuperBank PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SuperBank/Pages/Account/Login.cshtml.cs">
+    <Files>
+      <File FileName="SuperBank/Program.cs" Line="16" Column="34" />
+      <File FileName="SuperBank/Pages/Account/Login.cshtml.cs" Line="72" Column="33" />
+      <File FileName="SuperBank/Pages/Services.cshtml.cs" Line="43" Column="27" />
+      <File FileName="SuperBank/Pages/BankService/Deposit.cshtml.cs" Line="33" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MySuperBank" expanded="True">
+            <Node name="SuperBank" expanded="True">
+              <Node name="Pages" expanded="True">
+                <Node name="Account" expanded="True">
+                  <Node name="Login.cshtml" expanded="True" />
+                </Node>
+                <Node name="BankService" expanded="True">
+                  <Node name="Deposit.cshtml" expanded="True" />
+                </Node>
+                <Node name="Shared" expanded="True" />
+                <Node name="Profile.cshtml" expanded="True" />
+                <Node name="Services.cshtml" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>

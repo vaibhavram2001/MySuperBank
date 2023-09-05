@@ -1,0 +1,85 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SuperBank
+build_property.RootNamespace = SuperBank
+build_property.ProjectDir = /Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWNjb3VudC9Gb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWNjb3VudC9Mb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/BankService/Deposit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQmFua1NlcnZpY2UvRGVwb3NpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/BankService/DetailedStatement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQmFua1NlcnZpY2UvRGV0YWlsZWRTdGF0ZW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/BankService/Transaction.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQmFua1NlcnZpY2UvVHJhbnNhY3Rpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/BankService/Withdraw.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQmFua1NlcnZpY2UvV2l0aGRyYXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/Services.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2VydmljZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vaibhavram/Desktop/Projects/GitHub/MySuperBank/SuperBank/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-8jt9lzbw5c

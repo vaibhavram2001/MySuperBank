@@ -1,0 +1,170 @@
+﻿@page
+@model SuperBank.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Please Register";
+}
+
+
+<style>
+
+    #togglePassword,#toggleCheck {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+    }
+
+    #eyeIcon {
+        font-size: 20px;
+        color: #555;
+        cursor: pointer;
+    }
+
+    #password {
+        padding-right: 40px; /* Ensure enough space for the button */
+    }
+
+    .validation-summary ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+</style>
+
+<script src="https://kit.fontawesome.com/39a832046e.js" crossorigin="anonymous"></script>
+
+
+<div class="mx-auto w-25 p-3 justify-content-center rounded border border-3 border-dark fs-3 text-center text-light py-2 px-2 mb-4 bg-dark" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ">Register</div>
+<section>
+    <div class="container square-box border border-3 border-dark bg-dark">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100 mb-4 mt-5">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="~/images/Super.jpg"
+                         class="img-fluid" alt="Sample image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form method="post">
+
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4 text-center">
+                            <label class="form-label text-light text-center" asp-for="Input.Email">Email Address</label>
+                            <input type="email" id="Mail" asp-for="Input.Email" class="form-control form-control-lg"
+                                   placeholder="Enter a valid email address" />
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-3 text-center">
+                            <label class="form-label text-light" asp-for="Input.Password">Password</label>
+                            <div class="input-group mb-3">
+                                <input type="password" id="Password" asp-for="Input.Password" class="form-control form-control-lg"
+                                       placeholder="Enter Password" />
+                                <div class="input-group-append border border-light d-flex align-items-center">
+                                    <button type="button" id="togglePassword" class="btn btn-light">
+                                        <i class="eye1 fas fa-eye" id="eyeIcon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="password-message" class="text-danger"></div>
+                        </div>
+
+
+                        <div class="form-outline mb-4 text-center">
+                            <label class="form-label text-light" asp-for="Input.ConfirmPassword">Confirm Password</label>
+                            <div class="input-group mb-3">
+                                <input type="password" id="ConfirmPassword" asp-for="Input.ConfirmPassword" class="form-control form-control-lg"
+                                       placeholder="Renter Password" />
+                                <div class="input-group-append border border-light d-flex align-items-center">
+                                    <button type="button" id="toggleCheck" class="btn btn-light">
+                                        <i class="eye2 fas fa-eye" id="eyeIcon"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div asp-validation-summary="All" class="text-danger mt-2 validation-summary"></div>
+
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary mb-4"
+                                        style="padding-left: 2.5rem; padding-right: 2.5rem;">
+                                    Register
+                                </button>
+                            </div>
+
+                            <p class="small pt-1 mb-0 text-light text-center ">
+                                (Or)
+                            </p>
+                            <p class="small pt-1 mt-2 text-light text-center ">
+                                Already have an account ?&ensp;
+                                <a asp-page="./Login" class="link-danger">Login</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    const passwordField = document.getElementById("Password");
+    const togglePass = document.getElementById("togglePassword");
+    const eyeIcon1 = document.querySelector(".eye1");
+    const checkPassword = document.getElementById("ConfirmPassword");
+    const toggleCheck = document.getElementById("toggleCheck");
+    const eyeIcon2 = document.querySelector(".eye2");
+
+
+    toggleCheck.addEventListener("click", function () {
+        if (checkPassword.type === "password") {
+            checkPassword.type = "text";
+            eyeIcon2.classList.remove("fa-eye");
+            eyeIcon2.classList.add("fa-eye-slash");
+        } else {
+            checkPassword.type = "password";
+            eyeIcon2.classList.remove("fa-eye-slash");
+            eyeIcon2.classList.add("fa-eye");
+        }
+    });
+
+    togglePass.addEventListener("click", function () {
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            eyeIcon1.classList.remove("fa-eye");
+            eyeIcon1.classList.add("fa-eye-slash");
+        } else {
+            passwordField.type = "password";
+            eyeIcon1.classList.remove("fa-eye-slash");
+            eyeIcon1.classList.add("fa-eye");
+        }
+    });
+</script>
+
+
+<script>
+    const passwordInput = document.getElementById('Password');
+    const passwordMessage = document.getElementById('password-message');
+
+    passwordInput.addEventListener('input', function () {
+        const password = passwordInput.value;
+
+        // Reset any previous validation message
+        passwordMessage.textContent = '';
+
+        if (password.length < 8) {
+        passwordMessage.textContent = 'Password must be at least 8 characters long';
+        } else if (!/[A-Z]/.test(password)) {
+            passwordMessage.textContent = 'Password must contain at least one uppercase letter';
+        } else if (!/[a-z]/.test(password)) {
+            passwordMessage.textContent = 'Password must contain at least one lowercase letter';
+        } else if (!/\d/.test(password)) {
+            passwordMessage.textContent = 'Password must contain at least one digit';
+        } else if (!/[!@@#$%^&*.,]/.test(password)) {
+            passwordMessage.textContent = 'Password must contain at least one special character from [!@@#$%^&*.,]';
+        }
+    });
+</script>

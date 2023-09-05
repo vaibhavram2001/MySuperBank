@@ -1,0 +1,130 @@
+﻿@page
+@model SuperBank.Pages.BankService.DetailedStatementModel
+@{
+    ViewData["Title"] = "Detailed Statement";
+}
+@using SuperBank.Models;
+
+<script src="https://kit.fontawesome.com/39a832046e.js" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+@{
+    var periodOption = Request.Query["periodOption"];
+    var startDate = Request.Query["startDate"];
+    var endDate = Request.Query["endDate"];
+    var minAmount = Request.Query["minAmount"];
+    var maxAmount = Request.Query["maxAmount"];
+    var type = Request.Query["type"];
+}
+
+
+<div class="container mt-5 mb-5 bg-dark">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h1 class="text-center text-white mt-3 mb-3">@ViewData["Title"]</h1>
+
+
+            <div class="card mb-5">
+                <div class="card-body d-flex flex-row justify-content-around text-center">
+                    <div class="d-flex align-items-center">
+                        <a href="javascript:history.go(-1)" class="btn text-white btn-warning">
+                            <i class="fas fa-arrow-left"></i> Back To Filters
+                        </a>
+                    </div>
+
+                    <div class="card  border border-dark border-4 mb-1">
+                        <div class="bg-white text-dark mt-2">
+                            <h5>Applied Filters</h5>
+                        </div>
+
+                        <div class="card-body  text-white bg-dark">
+
+                            <p><strong>Total Records :</strong><label class="text-primary">&ensp;@TempData["Count"]</label></p>
+
+                            @if (TempData["startDate"] != null && TempData["endDate"] != null)
+                            {
+                                <p><strong>Period :</strong>&ensp;@TempData["startDate"] to @TempData["endDate"]</p>
+                            }
+                            @if (TempData["maxi"] != null && TempData["mini"] != null)
+                            {
+                                <p><strong>Amount Range :</strong>&ensp;$@TempData["mini"] - $@TempData["maxi"] </p>
+                            }
+                            else if (TempData["maxi"] != null)
+                            {
+                                <p><strong>Amount Range :</strong>&ensp;Under $@TempData["maxi"] </p>
+                            }
+                            else if (TempData["mini"] != null)
+                            {
+                                <p><strong>Amount Range :</strong>&ensp;Above $@TempData["mini"] </p>
+                            }
+                            @if (TempData["type"] == TransactionType.Withdrawal.ToString())
+                            {
+                                <p><strong>Transaction Type :</strong><label class="text-danger">&ensp;@TempData["type"]</label></p>
+                            }
+                            else if (TempData["type"] == TransactionType.Deposit.ToString())
+                            {
+                                <p><strong>Transaction Type :</strong><label class="text-success">&ensp;@TempData["type"]</label></p>
+                            }
+
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center">
+                        @if ((int)@TempData["Count"] != 0)
+                        {
+                            <a class="btn btn-primary" id="filterbtn">
+                                <i class="fas fa-arrow-down"></i> &ensp;View Transactions
+                            </a>
+                        }
+                        else
+                        {
+                            <div class="m-5 p-5"></div>
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container mt-5 mb-5 bg-dark" id="FilteredTransactions" style="display:none">
+                @foreach (Transaction transaction in Model.FilteredTransactions)
+                {
+                    <!-- Display transaction details here -->
+                    <div class="card mb-2 col-md-8 mx-auto">
+                        <div class="card-body d-flex justify-content-between align-items-center p-2">
+                            <div>
+                                <div class="text-primary">@transaction.TransactionDate.ToString("MMM d, yyyy")</div>
+                                <div>@transaction.TransactionDate.ToShortTimeString()</div>
+                            </div>
+
+                            @if (transaction.TransactionType == TransactionType.Deposit)
+                            {
+                                <div class="text-success">
+                                    <span class="h5 font-weight-bold ">$@transaction.TransactionAmount</span>
+                                    <span>Cr</span>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="text-danger">
+                                    <span class="h5 font-weight-bold ">$@transaction.TransactionAmount</span>
+                                    <span>Dr</span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script>$(document).ready(function () {
+        $("#filterbtn").click(function () {
+            $("#FilteredTransactions").toggle();
+        });
+    });</script>

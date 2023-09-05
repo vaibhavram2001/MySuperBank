@@ -1,0 +1,163 @@
+﻿
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> SignInManager
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+
+    <style>
+
+        .card {
+            border: none;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .img {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: aquamarine;
+            color: white;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+            .cta-button:hover {
+                background-color: #0056b3;
+            }
+
+        h2 {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        p.lead {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation:upright;
+            font-family: 'Oswald', sans-serif; /* Use the Oswald font */
+            font-size: 10px; /* Adjust the font size as needed */
+            color: white; /* Set the text color */
+            letter-spacing: 0px; /* Add letter spacing for a stylish look */
+            font-weight:bold;
+            font-style:revert;
+        }
+    </style>
+
+
+    <div class="container mt-5">
+        <div class="text-center bg-dark text-white p-3 mt-3">
+            <img src="~/images/logo.png" alt="Logo" width="100" height="100" class="text-center">
+
+            <h1>Welcome to SuperBank</h1>
+            <p>Your Trusted Financial Partner</p>
+        </div>
+    </div>
+    <div class="mx-auto text-center p-3 mb-0 mt-4">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <div>
+                <p class="lead">Hi, <span class="text-info font-weight-bold ">@User.Identity.Name</span>! Greetings to this page.</p>
+            </div>
+        }
+        <div class="lead">
+            <p>Experience the future of banking with SuperBank. We provide innovative financial solutions tailored to your needs.</p>
+            <p class="mb-0">Whether you're saving or managing your daily finances, SuperBank has you covered.</p>
+        </div>
+    </div>
+
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <div class="text-center mt-5">
+
+            <p class="mb-3">
+                Sign in to get started or create an account to access our banking features.
+            </p>
+            <div>
+                <a asp-page="/Account/Login" class="btn btn-primary">Sign In</a>&ensp; &ensp;
+                <a asp-page="/Account/Register" class="btn btn-secondary">Create Account</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="text-center mb-4">
+            <a asp-page="/Services">Explore Our Services</a>
+        </div>
+        <div class="d-md-flex flex-row p-2 text-center justify-content-around mb-2">
+            <div class="p3 d-flex rounded-circle" style="background-color: #343a40">
+                <div class="d-md-flex flex-row p-3">
+                    <div class="p2 d-flex align-items-center">
+                        <a class="navbar-brand mx-auto" asp-page="/BankService/Deposit">
+                            <img src="~/images/deposit.png" alt="Deposit" class="img-fluid" width="125">
+                        </a>
+                    </div>
+                    <div class="p2 d-flex align-items-center">
+                        <div class="vertical-text bg-success mx-1 py-1">
+                            DEPOSIT
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p3 d-flex rounded-circle" style="background-color: #343a40">
+                <div class="d-md-flex flex-row p-3">
+                    <div class="p2 d-flex align-items-center">
+                        <a class="navbar-brand mx-auto" asp-page="/BankService/Transaction">
+                            <img src="~/images/report.png" alt="Report" class="img-fluid" width="125">
+                        </a>
+                    </div>
+                    <div class="p2 d-flex align-items-center">
+                        <div class="vertical-text bg-primary mx-1 py-1">
+                            HISTORY
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p4 d-flex rounded-circle" style="background-color: #343a40">
+                <div class="d-md-flex flex-row p-4">
+                    <div class="p2 d-flex align-items-center">
+                        <a class="navbar-brand mx-auto" asp-page="/BankService/Withdraw">
+                            <img src="~/images/withdraw.png" alt="Withdraw" class="img-fluid" width="125" style=" transform: rotate(120deg)">
+                        </a>
+                    </div>
+                    <div class="p2 d-flex align-items-center">
+                        <div class="vertical-text bg-danger mx-2 py-1">
+                            WITHDRAW
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }

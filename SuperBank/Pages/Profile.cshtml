@@ -1,0 +1,165 @@
+﻿@page
+@model SuperBank.Pages.ProfileModel
+@{
+}
+<style>
+    .profile-summary {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        max-width: 400px;
+        margin: 0 auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-item {
+        display: flex; /* Use flexbox to display labels and values on the same line */
+        justify-content: space-between; /* Create space between label and value */
+        margin-bottom: 10px;
+    }
+
+    .profile-label {
+        color: #555;
+        flex: 1; /* Make the label flex to take available space */
+    }
+
+    .profile-value {
+        color: #333;
+        flex: 2; /* Make the value flex to take more space than the label */
+    }
+
+    /* Hide the balance by default */
+    #balanceValue {
+        display: none;
+    }
+
+    .btn-primary {
+        background-color: dodgerblue;
+        color: white;
+        transition: color 0.3s ease-in-out;
+    }
+
+        /* Style for hover state */
+        .btn-primary:hover {
+            color: #000; /* Change text color to black on hover */
+        }
+</style>
+
+
+
+
+<div class="container mt-5 mb-5 bg-dark ">
+    <div class="row justify-content-center">
+        @if (Model.HasBankAccount)
+        {
+            <div class="col-md-8">
+                <h6 class="text-center text-white mt-3 mb-3">Your SuperBank Account !</h6>
+                <div class="card mb-5 bg-dark border-0">
+                    <div class="profile-summary card">
+                        <h4 class="text-center rounded p-2 text-white mb-4" style="background-color: #343a40">Account Summary</h4>
+                        <div class="d-flex align-items-center justify-content-center ">
+                            <div class="profile-info">
+                                <div class="profile-item p-2 m-1">
+                                    <span class="profile-label ">Acc.Name:</span>&emsp;&emsp;&emsp;
+                                    <span class="profile-value ">@Model.BankAccount.Name</span>
+                                </div>
+
+                                <div class="profile-item p-2 m-1">
+                                    <span class="profile-label ">Acc.Email:</span>&emsp;&emsp;&nbsp;&emsp;
+                                    <span class="profile-value">@Model.CurrentUser.Email</span>
+                                </div>
+
+                                <div class="profile-item p-2 m-1">
+                                    <span class="profile-label">Acc.Phone:</span>&emsp;&ensp;&nbsp;&emsp;
+                                    <span class="profile-value">@Model.BankAccount.PhoneNumber</span>
+                                </div>
+
+                                <div class="profile-item p-2 m-1">
+                                    <span class="profile-label">Acc.Number:</span>&emsp;&emsp;
+                                    <span class="profile-value text-info font-weight-bold ">@Model.BankAccount.AccountNumber</span>
+                                </div>
+
+
+
+                                <div class="profile-item p-2 m-1">
+                                    <span class="profile-label">Acc.Balance:</span>&emsp;&emsp;
+                                    <span id="balanceValue" class="profile-value text-info font-weight-bold" style="display: none">$@Model.BankAccount.Balance</span>
+                                    <span id="balancePlaceholder" class="profile-value text-info font-weight-bold">XXXXX</span>
+                                </div>
+                                <div class="profile-item d-flex flex-column mt-3">
+                                    <button id="viewBalanceBtn" class="btn btn-sm btn-primary" onclick="showBalance()">View Balance</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <h6 class="text-center text-white mt-3 mb-3">Note : You need a SuperBank Account to enjoy our services !!!</h6>
+            <div class="col-md-4">
+
+                <div class="card mb-5">
+                    <h3 class=" p-2 text-white text-center border border-light" style="background-color: #343a40">Create Bank Account</h3>
+                    <div class="card-body">
+                        <form method="post">
+                            <div class="form-group mb-2">
+                                <label for="Name">Name:</label>
+                                <input type="text" class="form-control" id="Name" name="Name" asp-for="Name" required>
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="PhoneNumber">Phone Number:</label>
+                                <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" asp-for="PhoneNumber" required>
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="DateOfBirth">Date of Birth:</label>
+                                <input type="date" class="form-control" id="DateOfBirth" name="DateOfBirth" asp-for="DateOfBirth" required>
+                                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="InitialDeposit">Initial Deposit:</label>
+                                <input type="number" class="form-control" id="InitialDeposit" name="InitialDeposit" asp-for="InitialDeposit" required value="">
+                                <span asp-validation-for="InitialDeposit" class="text-danger"></span>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary text-center mt-2">Create Bank Account</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+
+
+
+
+<script>var isBalanceVisible = false; // Initialize as not visible
+
+    function showBalance() {
+        var balanceValue = document.getElementById("balanceValue");
+        var balancePlaceholder = document.getElementById("balancePlaceholder");
+        var balanceBtn = document.getElementById("viewBalanceBtn");
+
+        // Toggle the visibility of the balance value, balance placeholder, and button
+        isBalanceVisible = !isBalanceVisible;
+
+        if (isBalanceVisible) {
+            balanceValue.style.display = "inline";
+            balancePlaceholder.style.display = "none";
+            balanceBtn.textContent = "Hide Balance";
+        } else {
+            balanceValue.style.display = "none";
+            balancePlaceholder.style.display = "inline";
+            balanceBtn.textContent = "View Balance";
+        }
+    }</script>

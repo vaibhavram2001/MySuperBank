@@ -1,0 +1,124 @@
+﻿@page
+@model SuperBank.Pages.LoginModel
+@{
+    ViewData["Title"] = "Please Login";
+}
+
+
+<style>
+
+    #togglePassword {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+    }
+
+    #eyeIcon {
+        font-size: 20px;
+        color: #555;
+        cursor: pointer;
+    }
+
+    #password {
+        padding-right: 40px; /* Ensure enough space for the button */
+    }
+
+    .validation-summary ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+</style>
+
+<script src="https://kit.fontawesome.com/39a832046e.js" crossorigin="anonymous"></script>
+
+
+<div class="mx-auto w-25 p-3 justify-content-center rounded border border-3 border-dark fs-3 text-center text-light mb-4 py-2 px-2 bg-dark" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ">Login</div>
+<section>
+    <div class="container square-box border border-3 border-dark bg-dark p-3">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100 mb-5 mt-5">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="~/images/Super.jpg"
+                         class="img-fluid" alt="Sample image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form method="post">
+
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4 text-center">
+                            <label class="form-label text-light" asp-for="Input.Email">Email Address</label>
+                            <input type="email" id="Mail" asp-for="Input.Email" class="form-control form-control-lg"
+                                   placeholder="Enter a valid email address" />
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-3 text-center">
+                            <label class="form-label text-light" asp-for="Input.Password">Password</label>
+                            <div class="input-group mb-3">
+                                <input type="password" id="Password" asp-for="Input.Password" class="form-control form-control-lg"
+                                       placeholder="Enter Password" />
+                                <div class="input-group-append border border-light d-flex align-items-center">
+                                    <button type="button" id="togglePassword" class="btn btn-light">
+                                        <i class="fas fa-eye" id="eyeIcon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div asp-validation-summary="All" class="text-danger mt-2 validation-summary"></div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <!-- Checkbox -->
+                            <div class="form-check mb-0 text-center">
+                                <input class="form-check-input me-2" type="checkbox" asp-for="Input.RememberMe" id="check" />
+                                <label class="form-check-label text-light" asp-for="Input.RememberMe">
+                                    Remember me
+                                </label>
+                            </div>
+                            <a asp-page="./ForgotPassword" class="text-danger">Forgot password?</a>
+                        </div>
+
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary mb-4"
+                                        style="padding-left: 2.5rem; padding-right: 2.5rem;">
+                                    Login
+                                </button>
+                            </div>
+
+                            <p class="small pt-1 mb-0 text-light text-center ">
+                                (Or)
+                            </p>
+
+                            <p class="small mt-2 pt-1 text-light text-center">
+                                New To Super Bank ?&ensp;
+                                <a asp-page="./Register" class="link-danger">Register</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    const passwordField = document.getElementById("Password");
+    const toggleButton = document.getElementById("togglePassword");
+    const eyeIcon = document.getElementById("eyeIcon");
+
+    toggleButton.addEventListener("click", function () {
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            eyeIcon.classList.remove("fa-eye");
+            eyeIcon.classList.add("fa-eye-slash");
+        } else {
+            passwordField.type = "password";
+            eyeIcon.classList.remove("fa-eye-slash");
+            eyeIcon.classList.add("fa-eye");
+        }
+    });
+</script>
